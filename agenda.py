@@ -5,4 +5,4 @@ agendamento = {
     "horario": "14:00",
     "servico": "corte",
 }
-print (agendamento)
+print (agendamento)#Cria Dicionário de agendamento
