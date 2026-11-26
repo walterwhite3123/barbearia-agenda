@@ -8,3 +8,4 @@
 - `add_handler`:  liga u comando a uma função. quando chega /servicos. ai ele roda a função servicos
 - `async`:  marca ela pra poder esperar sem travar o bot
 - `await`: manda esperar uma coisa terminar antes de seguir o fluxo 
+#0001
