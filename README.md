@@ -12,5 +12,5 @@
 - bot manda dia e hora livre
 - cliente escolhe dia e horario disponivel
 - bot guarda no sistema
-- agradece
-- guarda o agendamento e manda pro barbeiro 
+- bot: agradece
+- bot: guarda o agendamento e manda pro barbeiro 
