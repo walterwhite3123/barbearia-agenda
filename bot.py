@@ -20,11 +20,23 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):# função q
   )
 
 
-async def servico (update: Update, context: ContextTypes.DEFAULT_TYPE): #função que roda no /serviço; \n= quebra de linha.
-    await update.message.reply_text("Corte - R$ 30\nBarba - 50  ")
+async def botao(update: Update, contetxt: ContextTypes.DEFAULT_TYPE):
+   consulta = update.callback_query  # é o "toque" que chegou. ele guarda. tudo sobre o botão 
+   await consulta.answer()  # avisa o Telegramm "recebi o toque" sem ele, o botão fica com um relogio girando
+   if consulta.data =="servicos":  #
+      await consulta.edit_message_text("Corte - R$ 30\nBarba - 50   ")
+
+   elif consulta.data == "horarios":
+      await consulta.edit_message_text("16:00   18:00")
+
+   elif consulta.data== "agendar":
+     await consulta.edit_message_text("DIA 1, DIA 2 , DIA 7, DIA 9")
+
+#async def servico (update: Update, context: ContextTypes.DEFAULT_TYPE): #função que roda no /serviço; \n= quebra de linha.
+#   await update.message.reply_text("Corte - R$ 30\nBarba - 50  ")
 
 app = ApplicationBuilder().token(TOKEN).build()   # cria o bot usando o token
 app.add_handler(CommandHandler("start", start))    # quando chama  /start, chama start "
-app.add_handler(CommandHandler("servico", servico)) #  quando chama  /servico, chama servico "
+app.add_handler(CallbackQueryHandler(botao))   # chama a função do botão
 app.run_polling ()             # liga  o bot. fica perguntando ao Telegram se há novidades(loop infinito).
 
